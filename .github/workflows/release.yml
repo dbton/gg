@@ -27,19 +27,9 @@ jobs:
       matrix:
         goos: [linux]
         goarch: [amd64, arm64]
-        include:
-          # BEGIN Linux ARM 5 6 7
-          - goos: linux
-            goarch: arm
-            goarm: 7
-          - goos: linux
-            goarch: arm
-            goarm: 6
-          - goos: linux
-            goarch: arm
-            goarm: 5
-          # END Linux ARM 5 6 7
-      fail-fast: false
+        goos: [android]
+        goarch: [arm64, arm]
+      fail-fast: fa	lse
 
     runs-on: ubuntu-22.04
     env:
