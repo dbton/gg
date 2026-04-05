@@ -25,30 +25,28 @@ jobs:
   build:
     strategy:
       matrix:
-  goos: [linux, android]          # 添加 android
-  goarch: [amd64, arm64]
-  include:
-    # Linux ARM variants
-    - goos: linux
-      goarch: arm
-      goarm: 7
-    - goos: linux
-      goarch: arm
-      goarm: 6
-    - goos: linux
-      goarch: arm
-      goarm: 5
-    # Android architectures
-    - goos: android
-      goarch: arm
-      goarm: 7            # ARMv7
-    - goos: android
-      goarch: arm64
-    - goos: android
-      goarch: 386         # x86 (模拟器常用)
-    - goos: android
-      goarch: amd64       # x86_64
-      fail-fast: fa	lse
+        goos: [linux]
+        goarch: [amd64, arm64]
+        include:
+          # Linux ARM variants
+          - goos: linux
+            goarch: arm
+            goarm: 7
+          - goos: linux
+            goarch: arm
+            goarm: 6
+          - goos: linux
+            goarch: arm
+            goarm: 5
+          # Android architectures
+          - goos: android
+            goarch: arm
+            goarm: 7            # ARMv7
+          - goos: android
+            goarch: arm64
+          - goos: android
+            goarch: amd64
+      fail-fast: false
 
     runs-on: ubuntu-22.04
     env:
@@ -101,7 +99,7 @@ jobs:
           upx gg-$ASSET_NAME
       
       - name: Smoking test
-        if: matrix.goarch == 'amd64'
+        if: matrix.goos == 'linux' && matrix.goarch == 'amd64'
         run: ./gg-$ASSET_NAME --version
 
       - name: Signature
