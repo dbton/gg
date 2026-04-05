@@ -3,7 +3,7 @@
   "linux-arm5": { "friendlyName": "linux-armv5" },
   "linux-arm6": { "friendlyName": "linux-armv6" },
   "linux-arm7": { "friendlyName": "linux-armv7" },
-  "linux-arm64": { "friendlyName": "linux-arm64" }，
+  "linux-arm64": { "friendlyName": "linux-arm64" },
 "android-amd64": { "friendlyName": "android-x86_64" },
   "android-386":   { "friendlyName": "android-386" },
   "android-arm64": { "friendlyName": "android-arm64" },
